@@ -40,6 +40,23 @@ header nav a{
     transition: 0.2s;
     text-decoration: none;
 }
+label[for="mode"]{
+    height: 24px;
+    min-width: 40px;
+    border-radius:24px ;
+    background: var(--grey);
+    position: relative;
+}
+label[for="mode"]::before {
+    content: '';
+    left: 4px;
+    bottom: 4px;
+    top: 4px;
+    width: 16px;
+    border-radius:24px ;
+    background: var(--blue);
+    position: absolute;
+}
 
 a.active{
     background: #14ff72cb;
@@ -58,8 +75,8 @@ a:hover{
 /* carousel */
 
 .carousel{
-    width: auto;
-    height: 40vh;
+    width: 80vh;
+    height: 25vh;
     margin-top: 0px;
     overflow: hidden;
     position: relative;
@@ -77,7 +94,7 @@ a:hover{
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 100;
+    z-index: 0;
     transition: 1s;
 }
 
@@ -132,7 +149,7 @@ a:hover{
 }
 
 .content .title{
-    font-size: 20px;
+    font-size: 18px;
     
     color: #14ff72cb;
     font-weight: bold;
@@ -143,7 +160,7 @@ a:hover{
 }
 
 .content .name{
-    font-size: 35px;
+    font-size: 20px;
     
     font-weight: bold;
     line-height: 1;
@@ -156,7 +173,7 @@ a:hover{
 .content .des{
     margin-top: 10px;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 13px;
     margin-left: 5px;
 
     opacity: 0;
@@ -348,6 +365,12 @@ a:hover{
         border-radius: 5px;
         cursor: pointer;
         }
+        nav label[for="mode"]{
+            min-width: 40px;
+            height: 24px;
+            border-radius:24px ;
+            background: var(--grey);
+        }
     </style>
     <script>
       var swiper = new Swiper(".progress-slide-carousel", {
@@ -402,24 +425,7 @@ a:hover{
                     </li> 
                 </ul>
             </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                    <i class="ri-flashlight-line mr-3 text-lg"></i>
-                    <span class="text-sm">Services</span>
-                    <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
-                </a>
-                <ul class="pl-7 mt-2 hidden group-[.selected]:block">
-                    <li class="mb-4">
-                        <a href="#" class="text-gray-300 text-sm flex items-center hover:text-gray-100 before:contents-[''] before:w-1 before:h-1 before:rounded-full before:bg-gray-300 before:mr-3">Manage services</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class="ri-settings-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">Settings</span>
-                </a>
-            </li>
+            
         </ul>
     </div>
     <div class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
@@ -438,7 +444,9 @@ a:hover{
                 <!-- <li class="text-gray-600 mr-2 font-medium">/</li>
                 <li class="text-gray-600 mr-2 font-medium">Analytics</li> -->
             </ul>
-    
+            <input type="checkbox" id="mode" class="ml-auto" hidden>
+            <label for="mode"></label>
+            
             <div class="flex ml-auto flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"></div>
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <div class="px-3 py-2 text-center text-xs font-semibold" style="background-color: #AEF889; color: #045C4B;">HC Level 2</div>
@@ -467,66 +475,73 @@ a:hover{
                     </div>
                 </div>
             </div>
-            <div class="carousel">
+            
+            <div class="p-6 pb-0">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-2">
+                    <div class="carousel">
 
-                <div class="list">
-        
-                    <div class="item" style="background-image: url(image/bannn.jpg);">
-                        <div class="content">
-                            <div class="title">Call The Doctor Now</div>
-                            <div class="name">"My LifeHealth Wallet"</div>
-                            <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
-                            <div class="btn">
-                                <button>See More</button>
-                                <button>Subscribe</button>
+                        <div class="list">
+                
+                            <div class="item" style="background-image: url(image/bannn.jpg);">
+                                <div class="content">
+                                    <div class="title">Call The Doctor Now</div>
+                                    <div class="name">"My LifeHealth Wallet"</div>
+                                    <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
+                                    <div class="btn">
+                                        <button>See More</button>
+                                        <button>Subscribe</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-        
-                    <div class="item" style="background-image: url(image/baby.jpg);">
-                        
-                        <div class="content">
-                            <div class="title">Where Care Meets</div>
-                            <div class="name">Community</div>
-                            <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
-                            <div class="btn">
-                                <button>See More</button>
-                                <button>Subscribe</button>
+                
+                            <div class="item" style="background-image: url(image/baby.jpg);">
+                                
+                                <div class="content">
+                                    <div class="title">Where Care Meets</div>
+                                    <div class="name">Community</div>
+                                    <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
+                                    <div class="btn">
+                                        <button>See More</button>
+                                        <button>Subscribe</button>
+                                    </div>
+                                </div>
+                
                             </div>
-                        </div>
-        
-                    </div>
-        
-                    <div class="item" style="background-image: url(image/ambulance.jpg);">
-        
-                        <div class="content">
-                            <div class="title">The Future is us</div>
-                            <div class="name">Maternity</div>
-                            <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
-                            <div class="btn">
-                                <button>See More</button>
-                                <button>Subscribe</button>
+                
+                            <div class="item" style="background-image: url(image/ambulance.jpg);">
+                
+                                <div class="content">
+                                    <div class="title">The Future is us</div>
+                                    <div class="name">Maternity</div>
+                                    <div class="des">Enjoy our Telehealth services through a fully personalized digitized Medical Record App.</div>
+                                    <div class="btn">
+                                        <button>See More</button>
+                                        <button>Subscribe</button>
+                                    </div>
+                                </div>
+                
                             </div>
+                
+                            
+                
                         </div>
-        
+                
+                        <!--next prev button-->
+                        <div class="arrows">
+                            <button class="prev"><</button>
+                            <button class="next">></button>
+                        </div>
+                
+                
+                        <!-- time running -->
+                        <div class="timeRunning"></div>
+                
                     </div>
-        
-                    
-        
-                </div>
-        
-                <!--next prev button-->
-                <div class="arrows">
-                    <button class="prev"><</button>
-                    <button class="next">></button>
-                </div>
-        
-        
-                <!-- time running -->
-                <div class="timeRunning"></div>
-        
+                    <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6584.868317249647!2d33.03219255902878!3d0.3392897938934064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dd902ec3451b9%3A0x196dbbf0d863339e!2sSt.%20Charles%20Lwanga%20Buikwe%20Hospital!5e0!3m2!1sen!2suk!4v1679457022721!5m2!1sen!2suk" frameborder="0" class="w-full h-full"></iframe>
+                    </div>
+                </div> 
             </div>
-        
             <!-- <ul class="ml-auto flex items-center">
                 <li class="mr-1 dropdown">
                     <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
@@ -872,7 +887,7 @@ a:hover{
                         </a>
                         <div class="px-5 pb-5">
                             <a href="#">
-                                <h5 class="font-medium tracking-tight text-gray-900 dark:text-white">Schedule a Medical Meeting with top Specialists for as low as:</h5>
+                                <h5 class="font-medium tracking-tight text-gray-900 dark:text-white">Don't Wait whole day in qeues:</h5>
                             </a>
                             <div class="flex items-center mt-2.5 mb-5">
                                 <div class="flex items-center space-x-1 rtl:space-x-reverse">
@@ -895,7 +910,7 @@ a:hover{
                                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-3xl font-bold text-gray-900 dark:text-white">$1</span>
+                                <span class="text-1xl font-bold text-gray-900 dark:text-white">UGX 1,500</span>
                                 <a href="#" class="text-white bg-[#045C4B] hover:bg-[#045C4B] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#045C4B] dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Book An Appointment
                                     <i class="ri-calendar-line mr-3 text-lg ms-2"></i>
@@ -913,7 +928,7 @@ a:hover{
                             <a href="#">
                                 <h5 class="mb-2 font-medium font-bold tracking-tight text-gray-900 dark:text-white">Telemedicine: Video Call</h5>
                             </a>
-                            <p class="mb-3 font-medium text-gray-700 dark:text-gray-400">Enjoy 1 FREE Tele-Health Call and enjoy upto 1 hour of Doctor-Patient conversation.</p>
+                            <p class="mb-3 font-8px text-gray-700 dark:text-gray-400">Get started with 1 free call for you and your family.</p>
                             <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#AEF889] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#045C4B] dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Make Video Call
                                 <i class="ri-video-chat-line mr-3 text-lg ms-2"></i>
@@ -1028,12 +1043,14 @@ a:hover{
                                     </div> Mortuary
                                 </li>
                             </ul>
+                            
                         </div>
                     </div>
                     
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            
+            <!-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                 <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md lg:col-span-2">
                     <div class="flex justify-between mb-4 items-start">
                         <div class="font-medium">Order Statistics</div>
@@ -1106,7 +1123,7 @@ a:hover{
                                     <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tr-md rounded-br-md">Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="earnings-table-body">
                                 <tr>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
                                         <div class="flex items-center">
@@ -1249,18 +1266,53 @@ a:hover{
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="flex justify-end mt-4">
+                            <button id="next-page-btn" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-500 disabled:opacity-50" disabled>Next Page</button>
+                        </div>
                     </div>
+                    
                 </div>
 
-            </div>
+            </div> -->
             
         </div>
+        <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+            <div class="">
+                <div class="text-center"><img src="https://media.giphy.com/media/1gXY6U7CdML3m/giphy.gif" alt="Ad 1" class=""></div>
+                
+            
+            </div>
+            <div class="">
+                <div class="text-center"><img src="https://media.giphy.com/media/1gXY6U7CdML3m/giphy.gif" alt="Ad 1" class=""></div>
+                
+            
+            </div>
+            <div class="">
+                <div class="text-center"><img src="https://media.giphy.com/media/1gXY6U7CdML3m/giphy.gif" alt="Ad 1" class=""></div>
+                
+            
+            </div>
+            <div class="">
+                <div class="text-center"><img src="https://media.giphy.com/media/1gXY6U7CdML3m/giphy.gif" alt="Ad 1" class=""></div>
+                
+            
+            </div>
+            <div class="">
+                <div class="text-center"><img src="https://media.giphy.com/media/1gXY6U7CdML3m/giphy.gif" alt="Ad 1" class=""></div>
+                
+            
+            </div>
+                
+        </div>
+    </div>
     </main>
     <!-- end: Main -->
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="dist/js/script.js"></script>
+    
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
